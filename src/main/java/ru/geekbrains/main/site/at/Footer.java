@@ -1,4 +1,4 @@
 package ru.geekbrains.main.site.at;
 
-public class Foter {
+public class Footer {
 }
