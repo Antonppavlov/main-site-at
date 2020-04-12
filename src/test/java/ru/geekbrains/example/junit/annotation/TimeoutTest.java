@@ -1,4 +1,4 @@
-package ru.geekbrains.main.site.at.junit.annotation;
+package ru.geekbrains.example.junit.annotation;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;

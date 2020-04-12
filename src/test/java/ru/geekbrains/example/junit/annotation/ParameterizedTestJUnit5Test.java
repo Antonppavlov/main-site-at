@@ -1,4 +1,4 @@
-package ru.geekbrains.main.site.at.junit.annotation;
+package ru.geekbrains.example.junit.annotation;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;

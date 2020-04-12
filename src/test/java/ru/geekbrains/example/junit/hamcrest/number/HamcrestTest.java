@@ -1,4 +1,4 @@
-package ru.geekbrains.main.site.at.junit.hamcrest.number;
+package ru.geekbrains.example.junit.hamcrest.number;
 
 import org.junit.jupiter.api.Test;
 

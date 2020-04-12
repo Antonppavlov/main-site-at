@@ -1,4 +1,4 @@
-package ru.geekbrains.main.site.at.junit.assertion;
+package ru.geekbrains.example.junit.assertion;
 
 import org.junit.jupiter.api.Test;
 
@@ -11,19 +11,18 @@ class AssertionsTest {
     @Test
     void standardAssertions() {
         assertEquals(2, 2);
-        assertEquals(4, 4, "The optional assertion message is now the last parameter.");
+        assertEquals(4, 4, "числа не равны");
     }
 
     @Test
     void groupedAssertions() {
-        // In a grouped assertion all assertions are executed, and any
-        // failures will be reported together.
+        //В сгруппированной проверке все проверки выполняются, а любые сбои ошибки сообщаться вместе.
         assertAll("Пользователь",
                 () -> assertEquals("Иван", "Петр"),
                 () -> assertEquals("Иванов", "Васильев")
         );
     }
-//
+
 //    @Test
 //    void dependentAssertions() {
 //        // Within a code block, if an assertion fails the
@@ -56,13 +55,14 @@ class AssertionsTest {
 
     @Test
     void exceptionTesting() {
+        //проверка сообщения exception
         Throwable exception = new IllegalArgumentException("a message");
         assertEquals("a message", exception.getMessage());
     }
 
     @Test
     void timeoutNotExceeded() {
-        // The following assertion succeeds.
+        // проверка времени выполнения теста
         assertTimeout(ofSeconds(1), () -> {
            sleep(3500);
 

@@ -1,15 +1,12 @@
-package ru.geekbrains.main.site.at.junit.annotation;
+package ru.geekbrains.example.junit.annotation;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
 @Tag("regress")
-class DisabledTest {
+class TagTest {
 
-    @Disabled
     @Tag("smoke")
     @Test
     void myFirstTest() {

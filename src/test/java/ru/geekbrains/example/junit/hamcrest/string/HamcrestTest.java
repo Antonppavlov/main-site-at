@@ -1,4 +1,4 @@
-package ru.geekbrains.main.site.at.junit.hamcrest.string;
+package ru.geekbrains.example.junit.hamcrest.string;
 
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package ru.geekbrains.main.site.at.junit.annotation.base;
+package ru.geekbrains.example.junit.annotation.base;
 
 import org.junit.jupiter.api.*;
 
