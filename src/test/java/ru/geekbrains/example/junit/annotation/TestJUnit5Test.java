@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class TestJUnit5Test {
+public class TestJUnit5Test {
 
     //простой пример теста
     @Test

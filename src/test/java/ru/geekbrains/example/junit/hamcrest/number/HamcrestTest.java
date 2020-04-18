@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
-class HamcrestTest {
+public class HamcrestTest {
 
-//    Число больше 5
+    //    Число больше 5
 //    Число меньше или равно 7
     @Test
     public void givenNumber_whenConditions_thenCorrect() {

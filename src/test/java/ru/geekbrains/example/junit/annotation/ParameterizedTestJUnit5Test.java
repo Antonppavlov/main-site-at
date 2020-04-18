@@ -10,11 +10,11 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-class ParameterizedTestJUnit5Test {
+public class ParameterizedTestJUnit5Test {
 
-//-------------------Простой пример
+    //-------------------Простой пример
     @ParameterizedTest
-    @ValueSource(strings = { "Hello", "World" })
+    @ValueSource(strings = {"Hello", "World"})
     void testWithStringParameter(String argument) {
         assertNotNull(argument);
     }

@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
-class HamcrestTest {
+public class HamcrestTest {
 
     //Допустим, есть объект. В нашем случае экземпляр класса Dog. Проверим, что его метод toString() возвращает заданное значение:
     @Test

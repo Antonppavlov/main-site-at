@@ -1,9 +1,9 @@
 package ru.geekbrains.example.junit.annotation;
 
 import org.junit.jupiter.api.*;
-import ru.geekbrains.main.site.at.base.BaseTest;
+import ru.geekbrains.example.junit.annotation.base.BaseTestJunit;
 
-class StandardTests extends BaseTest {
+public class StandardTests extends BaseTestJunit {
 
     @BeforeAll
     static void initAll() {

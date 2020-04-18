@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 @Tag("regress")
-class TagTest {
+public class TagTest {
 
     @Tag("smoke")
     @Test

@@ -1,12 +1,11 @@
 package ru.geekbrains.example.junit.annotation;
 
 import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class DisabledTest {
+public class DisabledTest {
 
     @Disabled
     @Test

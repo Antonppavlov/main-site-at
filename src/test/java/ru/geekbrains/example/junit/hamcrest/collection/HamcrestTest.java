@@ -10,7 +10,7 @@ import java.util.Map;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
-class HamcrestTest {
+public class HamcrestTest {
     //    Имеется список. Необходимо убедиться, что он не пустой:
     @Test
     public void givenList_whenCheck_thenNotEmpty() {

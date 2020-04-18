@@ -6,7 +6,7 @@ import static java.lang.Thread.sleep;
 import static java.time.Duration.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-class AssertionsTest {
+public class AssertionsTest {
 
     @Test
     void standardAssertions() {

@@ -1,10 +1,11 @@
 package ru.geekbrains.example.junit.hamcrest;
 
 import org.junit.jupiter.api.Test;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
-class HamcrestTest {
+public class HamcrestTest {
 
     @Test
     public void givenString_whenConditions_thenCorrect() {

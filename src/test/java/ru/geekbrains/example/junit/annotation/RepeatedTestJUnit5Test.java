@@ -4,7 +4,7 @@ import org.junit.jupiter.api.RepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class RepeatedTestJUnit5Test {
+public class RepeatedTestJUnit5Test {
 
     //количество повторений
     @RepeatedTest(10)

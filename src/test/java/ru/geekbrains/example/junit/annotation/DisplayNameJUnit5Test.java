@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @DisplayName("Тестовый набор")
-class DisplayNameJUnit5Test {
+public class DisplayNameJUnit5Test {
 
     @Test
     @DisplayName("Имя пользовательского теста, содержащее пробелы")

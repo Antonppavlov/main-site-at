@@ -2,13 +2,16 @@ package ru.geekbrains.main.site.at;
 
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.geekbrains.main.site.at.base.BaseTest;
 
-public class SearchTest extends BaseTest {
+@Execution(ExecutionMode.CONCURRENT)
+public class SearchWebTest extends BaseTest {
 //    Перейти на сайт https://geekbrains.ru/courses
 //    Нажать на кнопку Поиск
 //    В поле Поиск ввести текст: java
