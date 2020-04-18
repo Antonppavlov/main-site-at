@@ -1,12 +1,18 @@
-package ru.geekbrains.main.site.at;
+package ru.geekbrains.main.site.at.block;
 
 import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import ru.geekbrains.main.site.at.BasePage;
+import ru.geekbrains.main.site.at.CoursePage;
+import ru.geekbrains.main.site.at.HomePage;
 
 public class Navigation {
+
+    @FindBy(css = "[class=\"svg-icon icon-logo\"]")
+    private WebElement icon;
 
     @FindBy(css = "[class*=\"main-page-hidden\"] [href=\"/courses\"]")
     private WebElement buttonCourses;
@@ -33,11 +39,15 @@ public class Navigation {
     }
 
 
-    public Page clickButton(String nameButton) {
+    public BasePage clickButton(String nameButton) {
         switch (nameButton) {
+            case "Главная": {
+                icon.click();
+                return PageFactory.initElements(driver, HomePage.class);
+            }
             case "Курсы": {
                 buttonCourses.click();
-                break;
+                return PageFactory.initElements(driver, CoursePage.class);
             }
             case "Вебинары": {
                 buttonEvents.click();
@@ -64,7 +74,6 @@ public class Navigation {
             }
         }
 
-        return PageFactory.initElements(driver, Page.class);
-
+        return PageFactory.initElements(driver, HomePage.class);
     }
 }

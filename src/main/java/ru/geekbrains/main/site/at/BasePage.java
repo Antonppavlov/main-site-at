@@ -4,32 +4,39 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import ru.geekbrains.main.site.at.block.Navigation;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalToCompressingWhiteSpace;
 
-public class Page {
+public abstract class BasePage {
 
-    public Page(WebDriver driver) {
+    public BasePage(WebDriver driver) {
         navigation = PageFactory.initElements(driver, Navigation.class);
+        this.driver = driver;
     }
 
+    protected WebDriver driver;
     private Navigation navigation;
 
     @FindBy(css = "[class=\"gb-header__title\"]")
-    private WebElement headerPage;
+    private WebElement headerTitlePage;
 
     @FindBy(css = "div button svg[class=\"svg-icon icon-popup-close-button \"]")
     private WebElement buttonPopUpClosed;
 
-
-    public Page popUpClosed() {
+    public BasePage closedPopUp() {
         buttonPopUpClosed.click();
         return this;
     }
 
-    public Page checkNamePage(String exampleNamePage) {
-        String headerPageText = headerPage.getText();
+    public BasePage checkNamePage(String exampleNamePage) {
+        new WebDriverWait(driver, 30)
+                .until(ExpectedConditions.textToBePresentInElement(headerTitlePage, exampleNamePage));
+
+        String headerPageText = headerTitlePage.getText();
         assertThat(headerPageText, equalToCompressingWhiteSpace(exampleNamePage));
         return this;
     }

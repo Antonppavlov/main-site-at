@@ -19,7 +19,7 @@ public abstract class BaseTest {
 
         ChromeOptions options = new ChromeOptions();
 
-        options.addArguments("--dns-prefetch-disable");
+        options.addArguments("--disable-notifications");
         options.addArguments("--disable-popup-blocking");
         options.setExperimentalOption("excludeSwitches", Arrays.asList("disable-popup-blocking"));
         driver = new ChromeDriver(options);

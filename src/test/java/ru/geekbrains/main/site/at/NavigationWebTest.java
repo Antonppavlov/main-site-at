@@ -26,7 +26,7 @@ public class NavigationWebTest extends BaseTest {
     void checkNavigation(String namePage) {
         driver.get("https://geekbrains.ru/career");
 
-        PageFactory.initElements(driver, Page.class)
+        PageFactory.initElements(driver, HomePage.class)
                 .getNavigation().clickButton(namePage)
                 .checkNamePage(namePage);
     }
