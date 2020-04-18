@@ -9,7 +9,7 @@ import ru.geekbrains.main.site.at.base.BaseTest;
 
 @Execution(ExecutionMode.CONCURRENT)
 @DisplayName("Проверка страницы Курсы")
-public class CourseTest extends BaseTest {
+public class CourseWebTest extends BaseTest {
 
     @DisplayName("Вход с валидный логин/пароль")
     @Test
