@@ -19,6 +19,8 @@ public abstract class BaseTest {
 
         ChromeOptions options = new ChromeOptions();
 
+//        options.setPageLoadStrategy(PageLoadStrategy.NONE);
+
         options.addArguments("--disable-notifications");
         options.addArguments("--disable-popup-blocking");
         options.setExperimentalOption("excludeSwitches", Arrays.asList("disable-popup-blocking"));
