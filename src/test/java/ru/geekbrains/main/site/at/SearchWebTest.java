@@ -1,6 +1,7 @@
 package ru.geekbrains.main.site.at;
 
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
@@ -10,9 +11,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.geekbrains.main.site.at.base.BaseTest;
 
+@DisplayName("Проверка Поиска")
 @Execution(ExecutionMode.CONCURRENT)
 public class SearchWebTest extends BaseTest {
-//    Перейти на сайт https://geekbrains.ru/courses
+    //    Перейти на сайт https://geekbrains.ru/courses
 //    Нажать на кнопку Поиск
 //    В поле Поиск ввести текст: java
 //    Проверить что отобразились блоки:
@@ -23,9 +25,9 @@ public class SearchWebTest extends BaseTest {
 //            Форум
 //            Тесты
 //            Проекты и компании
-
+    @DisplayName("Проверка Поиска")
     @Test
-    void name() {
+    void searchTest() {
         driver.get("https://geekbrains.ru/career");
         WebElement buttonSearch = driver.findElement(By.cssSelector("[id=\"top-menu\"] [class=\"show-search-form\"] svg"));
         buttonSearch.click();
@@ -52,13 +54,13 @@ public class SearchWebTest extends BaseTest {
 //        wait.until(ExpectedConditions.textToBe(By.xpath("//header/h2[text()='Тесты']"),"Тесты"));
 //        wait.until(ExpectedConditions.textToBe(By.xpath("//header/h2[text()='Проекты и компании']"),"Проекты и компании"));
 //
-        wait.until(ExpectedConditions.textToBePresentInElement(textProfession,"Профессии"));
-        wait.until(ExpectedConditions.textToBePresentInElement(textCourses,"Курсы"));
-        wait.until(ExpectedConditions.textToBePresentInElement(textWebinars,"Вебинары"));
-        wait.until(ExpectedConditions.textToBePresentInElement(textBlogs,"Блоги"));
-        wait.until(ExpectedConditions.textToBePresentInElement(textForum,"Форум"));
-        wait.until(ExpectedConditions.textToBePresentInElement(textTests,"Тесты"));
-        wait.until(ExpectedConditions.textToBePresentInElement(textProjectsAndCompanies,"Проекты и компании"));
+        wait.until(ExpectedConditions.textToBePresentInElement(textProfession, "Профессии"));
+        wait.until(ExpectedConditions.textToBePresentInElement(textCourses, "Курсы"));
+        wait.until(ExpectedConditions.textToBePresentInElement(textWebinars, "Вебинары"));
+        wait.until(ExpectedConditions.textToBePresentInElement(textBlogs, "Блоги"));
+        wait.until(ExpectedConditions.textToBePresentInElement(textForum, "Форум"));
+        wait.until(ExpectedConditions.textToBePresentInElement(textTests, "Тесты"));
+        wait.until(ExpectedConditions.textToBePresentInElement(textProjectsAndCompanies, "Проекты и компании"));
 
 //        Assertions.assertEquals("Курсы", textCourses.getText());
 //        Assertions.assertEquals("Вебинары", textWebinars.getText());

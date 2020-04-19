@@ -1,5 +1,6 @@
 package ru.geekbrains.main.site.at;
 
+import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
@@ -12,6 +13,7 @@ import java.util.stream.Stream;
 
 @Execution(ExecutionMode.CONCURRENT)
 @DisplayName("Проверка навигации")
+@Feature("Проверка навигации")
 public class NavigationWebTest extends BaseTest {
 
     static Stream<String> stringProvider() {
