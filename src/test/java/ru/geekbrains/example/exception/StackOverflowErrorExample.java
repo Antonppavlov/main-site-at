@@ -1,4 +1,4 @@
-package ru.geekbrains.exception;
+package ru.geekbrains.example.exception;
 
 public class StackOverflowErrorExample {
     public static void main(String[] args) {

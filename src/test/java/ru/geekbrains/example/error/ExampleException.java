@@ -1,4 +1,4 @@
-package ru.geekbrains.error;
+package ru.geekbrains.example.error;
 
 import java.util.ArrayList;
 import java.util.Iterator;

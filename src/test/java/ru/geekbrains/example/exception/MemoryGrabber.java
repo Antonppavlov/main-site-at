@@ -1,4 +1,4 @@
-package ru.geekbrains.exception;
+package ru.geekbrains.example.exception;
 
 import java.util.ArrayList;
 import java.util.List;
