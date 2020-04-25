@@ -1,16 +1,17 @@
 package ru.geekbrains.main.site.at.block;
 
 import io.qameta.allure.Step;
-import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import ru.geekbrains.main.site.at.BasePage;
-import ru.geekbrains.main.site.at.CoursePage;
-import ru.geekbrains.main.site.at.HomePage;
+import ru.geekbrains.main.site.at.page.BasePageObject;
+import ru.geekbrains.main.site.at.page.content.CoursePage;
+import ru.geekbrains.main.site.at.page.content.HomePage;
+import ru.geekbrains.main.site.at.page.content.base.ContentBasePage;
+import ru.geekbrains.main.site.at.util.PageNotCreateException;
 
-public class Navigation {
+public class Navigation extends BasePageObject {
 
     @FindBy(css = "[class=\"svg-icon icon-logo\"]")
     private WebElement icon;
@@ -33,22 +34,22 @@ public class Navigation {
     @FindBy(css = "[class*=\"main-page-hidden\"] [href=\"/career\"]")
     private WebElement buttonCareer;
 
-    private WebDriver driver;
 
-    public Navigation(WebDriver driver) {
-        this.driver = driver;
+    public Navigation(WebDriver driver, boolean authorization) {
+        super(driver, authorization);
+        PageFactory.initElements(driver, this);
     }
 
     @Step("Нажатие кнопки {nameButton}")
-    public BasePage clickButton(String nameButton) {
+    public ContentBasePage clickButton(String nameButton) {
         switch (nameButton) {
             case "Главная": {
                 icon.click();
-                return PageFactory.initElements(driver, HomePage.class);
+                return new HomePage(driver, authorization);
             }
             case "Курсы": {
                 buttonCourses.click();
-                return PageFactory.initElements(driver, CoursePage.class);
+                return new CoursePage(driver, authorization);
             }
             case "Вебинары": {
                 buttonEvents.click();
@@ -71,7 +72,7 @@ public class Navigation {
                 break;
             }
             default: {
-                throw new NotFoundException("Не найдена кнопка с именем: " + nameButton);
+                throw new PageNotCreateException("Не найдена кнопка с именем: " + nameButton);
             }
         }
 

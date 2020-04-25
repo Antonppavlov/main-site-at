@@ -10,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
-public abstract class BaseTest {
+public abstract class BeforeAndAfterStep {
     protected WebDriver driver;
 
     @BeforeEach

@@ -6,15 +6,15 @@ import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.openqa.selenium.support.PageFactory;
-import ru.geekbrains.main.site.at.base.BaseTest;
+import ru.geekbrains.main.site.at.base.BeforeAndAfterStep;
+import ru.geekbrains.main.site.at.page.content.HomePage;
 
 import java.util.stream.Stream;
 
 @Execution(ExecutionMode.CONCURRENT)
 @DisplayName("Проверка навигации")
 @Feature("Проверка навигации")
-public class NavigationWebTest extends BaseTest {
+public class NavigationWebTest extends BeforeAndAfterStep {
 
     static Stream<String> stringProvider() {
         return Stream.of(
@@ -27,10 +27,9 @@ public class NavigationWebTest extends BaseTest {
     @MethodSource("stringProvider")
     void checkNavigation(String namePage) {
         driver.get("https://geekbrains.ru/career");
-
-        PageFactory.initElements(driver, HomePage.class)
+        new HomePage(driver, false)
                 .getNavigation().clickButton(namePage)
-                .checkNamePage(namePage);
+                .getHeader().checkNamePage(namePage);
     }
 
 }

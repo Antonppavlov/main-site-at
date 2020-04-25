@@ -9,11 +9,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import ru.geekbrains.main.site.at.base.BaseTest;
+import ru.geekbrains.main.site.at.base.BeforeAndAfterStep;
 
 @DisplayName("Проверка Поиска")
 @Execution(ExecutionMode.CONCURRENT)
-public class SearchWebTest extends BaseTest {
+public class SearchWebTest extends BeforeAndAfterStep {
     //    Перейти на сайт https://geekbrains.ru/courses
 //    Нажать на кнопку Поиск
 //    В поле Поиск ввести текст: java

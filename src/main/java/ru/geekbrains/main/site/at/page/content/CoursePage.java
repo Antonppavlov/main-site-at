@@ -1,18 +1,18 @@
-package ru.geekbrains.main.site.at;
+package ru.geekbrains.main.site.at.page.content;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
-import ru.geekbrains.main.site.at.block.CourseHeader;
+import ru.geekbrains.main.site.at.block.CourseContentSwitchBlock;
+import ru.geekbrains.main.site.at.page.content.base.ContentBasePage;
 
-public class CoursePage extends BasePage {
+public class CoursePage extends ContentBasePage {
 
-    public CoursePage(WebDriver driver) {
-        super(driver);
-        this.courseHeader = PageFactory.initElements(driver, CourseHeader.class);
+    private CourseContentSwitchBlock courseContentSwitchBlock;
+
+    public CoursePage(WebDriver driver, boolean authorization) {
+        super(driver, authorization);
+        this.courseContentSwitchBlock = new CourseContentSwitchBlock(driver, authorization);
     }
-
-    private CourseHeader courseHeader;
 
     public CoursePage configFilter(String... args) {
         for (String test : args) {
@@ -31,7 +31,7 @@ public class CoursePage extends BasePage {
         return this;
     }
 
-    public CourseHeader getCourseHeader() {
-        return courseHeader;
+    public CourseContentSwitchBlock getCourseContentSwitchBlock() {
+        return courseContentSwitchBlock;
     }
 }

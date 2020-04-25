@@ -1,16 +1,17 @@
 package ru.geekbrains.main.site.at.block;
 
-import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import ru.geekbrains.main.site.at.CoursePage;
+import ru.geekbrains.main.site.at.page.BasePageObject;
+import ru.geekbrains.main.site.at.page.content.CoursePage;
 
-public class CourseHeader {
+public class CourseContentSwitchBlock extends BasePageObject {
 
-    public CourseHeader(WebDriver driver) {
-        this.driver = driver;
+    public CourseContentSwitchBlock(WebDriver driver, boolean authorization) {
+        super(driver, authorization);
+        PageFactory.initElements(driver, this);
     }
 
     @FindBy(css = "[class*=\"nav nav-tabs\"] [id=\"prof-link\"]")
@@ -25,8 +26,6 @@ public class CourseHeader {
     @FindBy(css = "[class*=\"nav nav-tabs\"] [href*=\"https://forbusiness\"]")
     private WebElement buttonCompanies;
 
-
-    private WebDriver driver;
 
     public CoursePage clickButton(String nameButton) {
         switch (nameButton) {
@@ -47,10 +46,10 @@ public class CourseHeader {
                 break;
             }
             default: {
-                throw new NotFoundException("Не найдена кнопка с именем: " + nameButton);
+                throw new RuntimeException("Не найдена кнопка с именем: " + nameButton);
             }
         }
 
-        return PageFactory.initElements(driver, CoursePage.class);
+        return new CoursePage(driver, authorization);
     }
 }

@@ -9,8 +9,8 @@ import ru.geekbrains.main.site.at.page.sing.AuthorizationPage;
 import ru.geekbrains.main.site.at.page.content.CoursePage;
 
 @Execution(ExecutionMode.CONCURRENT)
-@DisplayName("Проверка страницы Курсы")
-public class CourseWebTest extends BeforeAndAfterStep {
+@DisplayName("Проверка страницы Тесты")
+public class TestWebTest extends BeforeAndAfterStep {
 
     @DisplayName("Вход с валидный логин/пароль")
     @Test
@@ -18,14 +18,14 @@ public class CourseWebTest extends BeforeAndAfterStep {
         String login = "hao17583@bcaoo.com";
         String password = "hao17583";
 
-        driver.get("https://geekbrains.ru/login");
+        driver.get("https://geekbrains.ru/tests");
 
         ((CoursePage)
                 new AuthorizationPage(driver)
                         .authorization(login, password)
                         .checkNamePage("Главная")
                         .getNavigation()
-                        .clickButton("Курсы")
+                        .clickButton("Тесты")
         )
                 .getCourseContentSwitchBlock().clickButton("Курсы")
                 .configFilter("Бесплатные", "Тестирование")

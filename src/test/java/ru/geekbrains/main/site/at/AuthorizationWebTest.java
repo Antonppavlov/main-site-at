@@ -4,12 +4,13 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
-import org.openqa.selenium.support.PageFactory;
-import ru.geekbrains.main.site.at.base.BaseTest;
+import ru.geekbrains.main.site.at.base.BeforeAndAfterStep;
+import ru.geekbrains.main.site.at.page.sing.AuthorizationPage;
 
 @Execution(ExecutionMode.CONCURRENT)
 @DisplayName("Проверка авторизации")
-public class AuthorizationWebTest extends BaseTest {
+public class AuthorizationWebTest extends BeforeAndAfterStep {
+
     @DisplayName("Вход с валидный логин/пароль")
     @Test
     void checkSingInValidLogin() {
@@ -17,8 +18,9 @@ public class AuthorizationWebTest extends BaseTest {
         String password = "hao17583";
 
         driver.get("https://geekbrains.ru/login");
-        PageFactory.initElements(driver, AuthorizationPage.class)
+        new AuthorizationPage(driver)
                 .authorization(login, password)
-                .checkNamePage("Главная");
+                .getHeader().checkNamePage("Главная");
     }
+
 }
