@@ -26,7 +26,7 @@ public class AuthorizationPage extends BasePageObject implements OpenUrl {
         PageFactory.initElements(driver, this);
     }
 
-    @Step("авторизация с логин:{login} и пароль {password}")
+    @Step("авторизация с логин: {login} и пароль: {password}")
     public HomePage authorization(String login, String password) {
         inputLogin.sendKeys(login);
         inputPassword.sendKeys(password);
