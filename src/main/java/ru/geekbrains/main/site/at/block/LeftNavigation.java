@@ -11,32 +11,31 @@ import ru.geekbrains.main.site.at.page.content.HomePage;
 import ru.geekbrains.main.site.at.page.content.base.ContentBasePage;
 import ru.geekbrains.main.site.at.util.PageNotCreateException;
 
-public class Navigation extends BasePageObject {
+public class LeftNavigation extends BasePageObject {
 
-    @FindBy(css = "[class=\"svg-icon icon-logo\"]")
+    @FindBy(css = "[class='svg-icon icon-logo']")
     private WebElement icon;
 
-    @FindBy(css = "[class*=\"main-page-hidden\"] [href=\"/courses\"]")
+    @FindBy(css = "[class*='main-page-hidden'] [href='/courses']")
     private WebElement buttonCourses;
 
-    @FindBy(css = "[class*=\"main-page-hidden\"] [href=\"/events\"]")
+    @FindBy(css = "[class*='main-page-hidden'] [href='/events']")
     private WebElement buttonEvents;
 
-    @FindBy(css = "[class*=\"main-page-hidden\"] [href=\"/topics\"]")
+    @FindBy(css = "[class*='main-page-hidden'] [href='/topics']")
     private WebElement buttonTopics;
 
-    @FindBy(css = "[class*=\"main-page-hidden\"] [href=\"/posts\"]")
+    @FindBy(css = "[class*='main-page-hidden'] [href='/posts']")
     private WebElement buttonPosts;
 
-    @FindBy(css = "[class*=\"main-page-hidden\"] [href=\"/tests\"]")
+    @FindBy(css = "[class*='main-page-hidden'] [href='/tests']")
     private WebElement buttonTests;
 
-    @FindBy(css = "[class*=\"main-page-hidden\"] [href=\"/career\"]")
+    @FindBy(css = "[class*='main-page-hidden'] [href='/career']")
     private WebElement buttonCareer;
 
-
-    public Navigation(WebDriver driver, boolean authorization) {
-        super(driver, authorization);
+    public LeftNavigation(WebDriver driver) {
+        super(driver);
         PageFactory.initElements(driver, this);
     }
 
@@ -45,11 +44,11 @@ public class Navigation extends BasePageObject {
         switch (nameButton) {
             case "Главная": {
                 icon.click();
-                return new HomePage(driver, authorization);
+                return new HomePage(driver);
             }
             case "Курсы": {
                 buttonCourses.click();
-                return new CoursePage(driver, authorization);
+                return new CoursePage(driver);
             }
             case "Вебинары": {
                 buttonEvents.click();

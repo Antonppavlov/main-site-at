@@ -8,13 +8,14 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import ru.geekbrains.main.site.at.base.BeforeAndAfterStep;
 import ru.geekbrains.main.site.at.page.content.HomePage;
+import ru.geekbrains.main.site.at.page.content.TestPage;
 
 import java.util.stream.Stream;
 
 @Execution(ExecutionMode.CONCURRENT)
 @DisplayName("Проверка навигации")
 @Feature("Проверка навигации")
-public class NavigationWebTest extends BeforeAndAfterStep {
+public class LeftNavigationWebTest extends BeforeAndAfterStep {
 
     static Stream<String> stringProvider() {
         return Stream.of(
@@ -26,9 +27,9 @@ public class NavigationWebTest extends BeforeAndAfterStep {
     @ParameterizedTest(name = "{index} => переход на страницу {0}")
     @MethodSource("stringProvider")
     void checkNavigation(String namePage) {
-        driver.get("https://geekbrains.ru/career");
-        new HomePage(driver, false)
-                .getNavigation().clickButton(namePage)
+        new TestPage(driver)
+                .openUrl()
+                .getLeftNavigation().clickButton(namePage)
                 .getHeader().checkNamePage(namePage);
     }
 

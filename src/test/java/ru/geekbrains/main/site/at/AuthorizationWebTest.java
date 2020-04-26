@@ -17,10 +17,10 @@ public class AuthorizationWebTest extends BeforeAndAfterStep {
         String login = "hao17583@bcaoo.com";
         String password = "hao17583";
 
-        driver.get("https://geekbrains.ru/login");
         new AuthorizationPage(driver)
+                .openUrl()
                 .authorization(login, password)
-                .getHeader().checkNamePage("Главная");
+                .checkNamePage("Главная");
     }
 
 }

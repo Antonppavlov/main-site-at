@@ -6,13 +6,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public abstract class BasePageObject {
 
     protected WebDriver driver;
-    protected boolean authorization;
+    protected WebDriverWait wait10second;
     protected WebDriverWait wait30second;
 
-    public BasePageObject(WebDriver driver, boolean authorization) {
-        this.authorization = authorization;
+    public BasePageObject(WebDriver driver) {
         this.driver = driver;
+        this.wait10second = new WebDriverWait(driver, 10);
         this.wait30second = new WebDriverWait(driver, 30);
     }
+
 
 }

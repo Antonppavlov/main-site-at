@@ -2,16 +2,17 @@ package ru.geekbrains.main.site.at.page.content;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import ru.geekbrains.main.site.at.block.CourseContentSwitchBlock;
+import ru.geekbrains.main.site.at.block.ContentNavigationCourseBlock;
+import ru.geekbrains.main.site.at.page.OpenUrl;
 import ru.geekbrains.main.site.at.page.content.base.ContentBasePage;
 
-public class CoursePage extends ContentBasePage {
+public class CoursePage extends ContentBasePage implements OpenUrl {
 
-    private CourseContentSwitchBlock courseContentSwitchBlock;
+    private ContentNavigationCourseBlock contentNavigationCourseBlock;
 
-    public CoursePage(WebDriver driver, boolean authorization) {
-        super(driver, authorization);
-        this.courseContentSwitchBlock = new CourseContentSwitchBlock(driver, authorization);
+    public CoursePage(WebDriver driver) {
+        super(driver);
+        this.contentNavigationCourseBlock = new ContentNavigationCourseBlock(driver);
     }
 
     public CoursePage configFilter(String... args) {
@@ -31,7 +32,13 @@ public class CoursePage extends ContentBasePage {
         return this;
     }
 
-    public CourseContentSwitchBlock getCourseContentSwitchBlock() {
-        return courseContentSwitchBlock;
+    public ContentNavigationCourseBlock getContentNavigationCourseBlock() {
+        return contentNavigationCourseBlock;
+    }
+
+    @Override
+    public CoursePage openUrl() {
+        driver.get("https://geekbrains.ru/courses");
+        return this;
     }
 }

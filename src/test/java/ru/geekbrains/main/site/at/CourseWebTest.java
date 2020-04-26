@@ -5,29 +5,23 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 import ru.geekbrains.main.site.at.base.BeforeAndAfterStep;
-import ru.geekbrains.main.site.at.page.sing.AuthorizationPage;
 import ru.geekbrains.main.site.at.page.content.CoursePage;
 
 @Execution(ExecutionMode.CONCURRENT)
-@DisplayName("Проверка страницы Курсы")
+@DisplayName("Страница Курсы")
 public class CourseWebTest extends BeforeAndAfterStep {
 
     @DisplayName("Вход с валидный логин/пароль")
     @Test
     void checkSingInValidLogin() {
-        String login = "hao17583@bcaoo.com";
-        String password = "hao17583";
-
-        driver.get("https://geekbrains.ru/login");
-
         ((CoursePage)
-                new AuthorizationPage(driver)
-                        .authorization(login, password)
-                        .checkNamePage("Главная")
-                        .getNavigation()
+                new CoursePage(driver)
+                        .openUrl()
+                        .closedPopUp()
+                        .getLeftNavigation()
                         .clickButton("Курсы")
         )
-                .getCourseContentSwitchBlock().clickButton("Курсы")
+                .getContentNavigationCourseBlock().clickButton("Курсы")
                 .configFilter("Бесплатные", "Тестирование")
                 .checkingDisplayedCourses(
                         "Тестирование ПО. Уровень 1",

@@ -23,7 +23,7 @@
         <java.version>1.8</java.version>
         <maven-surefire.version>2.22.2</maven-surefire.version>
         <allure-maven.version>2.10.0</allure-maven.version>
-        <reportVersion.version>2.13</reportVersion.version>
+        <reportVersion.version>2.13.3</reportVersion.version>
         <junit-platform-console-standalone.version>1.6.2</junit-platform-console-standalone.version>
         <aspectj.version>1.9.4</aspectj.version>
     </properties>
