@@ -17,7 +17,7 @@ public class AuthorizationWebTest extends BeforeAndAfterStep {
         String login = "hao17583@bcaoo.com";
         String password = "hao17583";
 
-        new AuthorizationPage(driver)
+        new AuthorizationPage()
                 .openUrl()
                 .authorization(login, password)
                 .checkNamePage("Главная");

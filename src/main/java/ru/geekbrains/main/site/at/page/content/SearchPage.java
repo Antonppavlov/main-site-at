@@ -5,18 +5,16 @@ import ru.geekbrains.main.site.at.block.SearchTabsBlock;
 import ru.geekbrains.main.site.at.page.OpenUrl;
 import ru.geekbrains.main.site.at.page.content.base.ContentBasePage;
 
+import static com.codeborne.selenide.Selenide.open;
+
 public class SearchPage extends ContentBasePage implements OpenUrl {
 
-    private SearchTabsBlock searchTabsBlock;
+    private SearchTabsBlock searchTabsBlock = new SearchTabsBlock();
 
-    public SearchPage(WebDriver driver) {
-        super(driver);
-        this.searchTabsBlock = new SearchTabsBlock(driver);
-    }
 
     @Override
     public SearchPage openUrl() {
-        driver.get("https://geekbrains.ru/search");
+        open("https://geekbrains.ru/search");
         return this;
     }
 

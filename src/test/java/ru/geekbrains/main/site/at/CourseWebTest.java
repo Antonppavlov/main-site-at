@@ -15,7 +15,7 @@ public class CourseWebTest extends BeforeAndAfterStep {
     @Test
     void checkSingInValidLogin() {
         ((CoursePage)
-                new CoursePage(driver)
+                new CoursePage()
                         .openUrl()
                         .closedPopUp()
                         .getLeftNavigation()

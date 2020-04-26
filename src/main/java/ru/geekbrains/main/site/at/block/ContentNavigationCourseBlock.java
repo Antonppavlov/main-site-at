@@ -1,29 +1,25 @@
 package ru.geekbrains.main.site.at.block;
 
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import ru.geekbrains.main.site.at.page.BasePageObject;
 import ru.geekbrains.main.site.at.page.content.CoursePage;
 
-public class ContentNavigationCourseBlock extends BasePageObject {
+import static com.codeborne.selenide.Selenide.$;
 
-    @FindBy(css = "[class*='nav nav-tabs'] [id='prof-link']")
-    private WebElement buttonProfessions;
+public class ContentNavigationCourseBlock  {
 
-    @FindBy(css = "[class*='nav nav-tabs'] [id='free-link']")
-    private WebElement buttonFreeIntensive;
+    private SelenideElement buttonProfessions;
+    private SelenideElement buttonFreeIntensive;
+    private SelenideElement buttonCourses;
+    private SelenideElement buttonCompanies;
 
-    @FindBy(css = "[class*='nav nav-tabs'] [id='cour-link']")
-    private WebElement buttonCourses;
-
-    @FindBy(css = "[class*='nav nav-tabs'] [href*='https://forbusiness']")
-    private WebElement buttonCompanies;
-
-    public ContentNavigationCourseBlock(WebDriver driver) {
-        super(driver);
-        PageFactory.initElements(driver, this);
+    public ContentNavigationCourseBlock() {
+        this.buttonProfessions = $("[class*='nav nav-tabs'] [id='prof-link']");
+        this.buttonFreeIntensive = $("[class*='nav nav-tabs'] [id='free-link']");
+        this.buttonCourses = $("[class*='nav nav-tabs'] [id='cour-link']");
+        this.buttonCompanies = $("[class*='nav nav-tabs'] [href*='https://forbusiness']");
     }
 
     public CoursePage clickButton(String nameButton) {
@@ -49,6 +45,6 @@ public class ContentNavigationCourseBlock extends BasePageObject {
             }
         }
 
-        return new CoursePage(driver);
+        return new CoursePage();
     }
 }

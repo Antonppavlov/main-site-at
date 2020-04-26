@@ -1,29 +1,23 @@
 package ru.geekbrains.main.site.at.page.sing;
 
+import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import ru.geekbrains.main.site.at.page.BasePageObject;
 import ru.geekbrains.main.site.at.page.OpenUrl;
-import ru.geekbrains.main.site.at.page.content.CoursePage;
 import ru.geekbrains.main.site.at.page.content.HomePage;
 
-public class AuthorizationPage extends BasePageObject implements OpenUrl {
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 
-    @FindBy(css = "[data-testid='login-email']")
-    private WebElement inputLogin;
+public class AuthorizationPage implements OpenUrl {
 
-    @FindBy(css = "[data-testid='login-password']")
-    private WebElement inputPassword;
+    private SelenideElement inputLogin;
+    private SelenideElement inputPassword;
+    private SelenideElement buttonSingInd;
 
-    @FindBy(css = "[data-testid='login-submit'")
-    private WebElement buttonSingInd;
-
-    public AuthorizationPage(WebDriver driver) {
-        super(driver);
-        PageFactory.initElements(driver, this);
+    public AuthorizationPage() {
+        this.inputLogin = $("[data-testid='login-email']");
+        this.inputPassword = $("[data-testid='login-password']");
+        this.buttonSingInd = $("[data-testid='login-submit']");
     }
 
     @Step("авторизация с логин: {login} и пароль: {password}")
@@ -31,12 +25,12 @@ public class AuthorizationPage extends BasePageObject implements OpenUrl {
         inputLogin.sendKeys(login);
         inputPassword.sendKeys(password);
         buttonSingInd.click();
-        return new HomePage(driver);
+        return new HomePage();
     }
 
     @Override
     public AuthorizationPage openUrl() {
-        driver.get("https://geekbrains.ru/login");
+        open("https://geekbrains.ru/login");
         return this;
     }
 }

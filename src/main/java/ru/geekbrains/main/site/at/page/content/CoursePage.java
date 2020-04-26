@@ -1,45 +1,37 @@
 package ru.geekbrains.main.site.at.page.content;
 
+
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.ElementsCollection;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
 import ru.geekbrains.main.site.at.block.ContentNavigationCourseBlock;
 import ru.geekbrains.main.site.at.page.OpenUrl;
 import ru.geekbrains.main.site.at.page.content.base.ContentBasePage;
 
-import java.util.List;
+import static com.codeborne.selenide.Selenide.open;
 
 public class CoursePage extends ContentBasePage implements OpenUrl {
 
-    private ContentNavigationCourseBlock contentNavigationCourseBlock;
+    private ContentNavigationCourseBlock contentNavigationCourseBlock = new ContentNavigationCourseBlock();
 
-    @FindBy(xpath="//*[@id=\"cour-new\"]//li")
-    private List<WebElement> filterList;
+    @FindBy(xpath = "//*[@id=\"cour-new\"]//li")
+    private ElementsCollection filterList;
 
-    @FindBy(xpath="//a/div/div/span")
-    private List<WebElement> courseList;
+    @FindBy(xpath = "//a/div/div/span")
+    private ElementsCollection courseList;
 
-    public CoursePage(WebDriver driver) {
-        super(driver);
-        this.contentNavigationCourseBlock = new ContentNavigationCourseBlock(driver);
-    }
 
     public CoursePage configFilter(String... args) {
-
         for (String test : args) {
-            //TODO после прохождения коллекций -переделать на коллекции
-            driver.findElement(By.xpath("//form/ul//label[text()='" + test + "']"))
-                    .click();
+            filterList.findBy(Condition.exactText(test));
         }
         return this;
     }
 
     public CoursePage checkingDisplayedCourses(String... args) {
         for (String test : args) {
-            //TODO после прохождения коллекций -переделать на коллекции
-            driver.findElement(By.xpath("//a/div/div/span[text()='" + test + "']"));
+            courseList.findBy(Condition.exactText(test));
         }
         return this;
     }
@@ -50,7 +42,7 @@ public class CoursePage extends ContentBasePage implements OpenUrl {
 
     @Override
     public CoursePage openUrl() {
-        driver.get("https://geekbrains.ru/courses");
+        open("https://geekbrains.ru/courses");
         return this;
     }
 }

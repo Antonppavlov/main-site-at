@@ -27,7 +27,7 @@ public class LeftNavigationWebTest extends BeforeAndAfterStep {
     @ParameterizedTest(name = "{index} => переход на страницу {0}")
     @MethodSource("stringProvider")
     void checkNavigation(String namePage) {
-        new TestPage(driver)
+        new TestPage()
                 .openUrl()
                 .getLeftNavigation().clickButton(namePage)
                 .getHeader().checkNamePage(namePage);

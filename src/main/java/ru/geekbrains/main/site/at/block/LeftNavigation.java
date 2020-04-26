@@ -1,54 +1,49 @@
 package ru.geekbrains.main.site.at.block;
 
+import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import ru.geekbrains.main.site.at.page.BasePageObject;
 import ru.geekbrains.main.site.at.page.content.CoursePage;
 import ru.geekbrains.main.site.at.page.content.HomePage;
 import ru.geekbrains.main.site.at.page.content.base.ContentBasePage;
 import ru.geekbrains.main.site.at.util.PageNotCreateException;
 
-public class LeftNavigation extends BasePageObject {
+public class LeftNavigation  {
 
     @FindBy(css = "[class='svg-icon icon-logo']")
-    private WebElement icon;
+    private SelenideElement icon;
 
     @FindBy(css = "[class*='main-page-hidden'] [href='/courses']")
-    private WebElement buttonCourses;
+    private SelenideElement buttonCourses;
 
     @FindBy(css = "[class*='main-page-hidden'] [href='/events']")
-    private WebElement buttonEvents;
+    private SelenideElement buttonEvents;
 
     @FindBy(css = "[class*='main-page-hidden'] [href='/topics']")
-    private WebElement buttonTopics;
+    private SelenideElement buttonTopics;
 
     @FindBy(css = "[class*='main-page-hidden'] [href='/posts']")
-    private WebElement buttonPosts;
+    private SelenideElement buttonPosts;
 
     @FindBy(css = "[class*='main-page-hidden'] [href='/tests']")
-    private WebElement buttonTests;
+    private SelenideElement buttonTests;
 
     @FindBy(css = "[class*='main-page-hidden'] [href='/career']")
-    private WebElement buttonCareer;
+    private SelenideElement buttonCareer;
 
-    public LeftNavigation(WebDriver driver) {
-        super(driver);
-        PageFactory.initElements(driver, this);
-    }
 
     @Step("Нажатие кнопки {nameButton}")
     public ContentBasePage clickButton(String nameButton) {
         switch (nameButton) {
             case "Главная": {
                 icon.click();
-                return new HomePage(driver);
+                return new HomePage();
             }
             case "Курсы": {
                 buttonCourses.click();
-                return new CoursePage(driver);
+                return new CoursePage();
             }
             case "Вебинары": {
                 buttonEvents.click();
@@ -75,6 +70,6 @@ public class LeftNavigation extends BasePageObject {
             }
         }
 
-        return PageFactory.initElements(driver, HomePage.class);
+        return new HomePage();
     }
 }

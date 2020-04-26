@@ -1,45 +1,39 @@
 package ru.geekbrains.main.site.at.block;
 
+import com.codeborne.selenide.SelenideElement;
 import org.hamcrest.Matcher;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import ru.geekbrains.main.site.at.page.BasePageObject;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class SearchTabsBlock extends BasePageObject {
+public class SearchTabsBlock  {
 
     @FindBy(css = "[class='search-page-tabs'] [data-tab='all']")
-    private WebElement tabEveryWhere;
+    private SelenideElement tabEveryWhere;
 
     @FindBy(css = "[class='search-page-tabs'] [data-tab='professions']")
-    private WebElement tabProfessions;
+    private SelenideElement tabProfessions;
 
     @FindBy(css = "[class='search-page-tabs'] [data-tab='courses']")
-    private WebElement tabCourses;
+    private SelenideElement tabCourses;
 
     @FindBy(css = "[class='search-page-tabs'] [data-tab='webinars']")
-    private WebElement tabWebinars;
+    private SelenideElement tabWebinars;
 
     @FindBy(css = "[class='search-page-tabs'] [data-tab='blogs']")
-    private WebElement tabBlogs;
+    private SelenideElement tabBlogs;
 
     @FindBy(css = "[class='search-page-tabs'] [data-tab='forums']")
-    private WebElement tabForums;
+    private SelenideElement tabForums;
 
     @FindBy(css = "[class='search-page-tabs'] [data-tab='tests']")
-    private WebElement tabTests;
+    private SelenideElement tabTests;
 
     @FindBy(css = "[class='search-page-tabs'] [data-tab='companies']")
-    private WebElement tabCompanies;
-
-    public SearchTabsBlock(WebDriver driver) {
-        super(driver);
-        PageFactory.initElements(driver, this);
-    }
+    private SelenideElement tabCompanies;
 
     public void clickButton(Tab tab) {
         getButton(tab).click();
@@ -51,7 +45,7 @@ public class SearchTabsBlock extends BasePageObject {
         return this;
     }
 
-    private WebElement getButton(Tab tab) {
+    private SelenideElement getButton(Tab tab) {
         switch (tab) {
             case Everywhere:
                 return tabEveryWhere;

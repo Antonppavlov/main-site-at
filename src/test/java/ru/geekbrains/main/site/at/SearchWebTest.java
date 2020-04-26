@@ -7,7 +7,6 @@ import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.params.provider.Arguments;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.geekbrains.main.site.at.base.BeforeAndAfterStep;
@@ -25,7 +24,7 @@ public class SearchWebTest extends BeforeAndAfterStep {
     @DisplayName("Проверка Поиска")
     @Test
     void searchTest() {
-     new TestPage(driver)
+     new TestPage()
              .openUrl()
              .getHeader()
              .searchText("java")
