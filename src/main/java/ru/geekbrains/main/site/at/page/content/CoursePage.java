@@ -3,6 +3,7 @@ package ru.geekbrains.main.site.at.page.content;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import ru.geekbrains.main.site.at.block.ContentNavigationCourseBlock;
 import ru.geekbrains.main.site.at.page.OpenUrl;
 import ru.geekbrains.main.site.at.page.content.base.ContentBasePage;
@@ -34,7 +35,8 @@ public class CoursePage extends ContentBasePage implements OpenUrl {
 
     public CoursePage checkingDisplayedCourses(String... args) {
         for (String test : args) {
-            findElement(courseList, test);
+            WebElement element = findElement(courseList, test);
+            wait10second.until(ExpectedConditions.visibilityOf(element));
         }
         return this;
     }

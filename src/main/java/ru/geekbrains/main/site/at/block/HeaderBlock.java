@@ -55,11 +55,12 @@ public class HeaderBlock extends BasePageObject {
     }
 
     @Step("проверка что имя страницы: {exampleNamePage}")
-    public void checkNamePage(String exampleNamePage) {
+    public HeaderBlock checkNamePage(String exampleNamePage) {
         wait30second.until(ExpectedConditions.textToBePresentInElement(headerTitlePage, exampleNamePage));
 
         String headerPageText = headerTitlePage.getText();
         assertThat(headerPageText, equalToCompressingWhiteSpace(exampleNamePage));
+        return this;
     }
 
     @Step("поиск на сайте по тексту: {exampleNamePage}")
