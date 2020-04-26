@@ -10,8 +10,8 @@ public abstract class BasePageObject {
     protected WebDriverWait wait30second;
 
     public BasePageObject(WebDriver driver, boolean authorization) {
-        this.authorization = authorization;
         this.driver = driver;
+        this.authorization = authorization;
         this.wait30second = new WebDriverWait(driver, 30);
     }
 
