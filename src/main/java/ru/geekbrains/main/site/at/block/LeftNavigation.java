@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import ru.geekbrains.main.site.at.page.BasePageObject;
 import ru.geekbrains.main.site.at.page.content.CoursePage;
 import ru.geekbrains.main.site.at.page.content.HomePage;
+import ru.geekbrains.main.site.at.page.content.TestPage;
 import ru.geekbrains.main.site.at.page.content.base.ContentBasePage;
 import ru.geekbrains.main.site.at.util.PageNotCreateException;
 
@@ -44,7 +45,6 @@ public class LeftNavigation extends BasePageObject {
         switch (nameButton) {
             case "Главная": {
                 icon.click();
-                return new HomePage(driver);
             }
             case "Курсы": {
                 buttonCourses.click();
@@ -64,7 +64,7 @@ public class LeftNavigation extends BasePageObject {
             }
             case "Тесты": {
                 buttonTests.click();
-                break;
+                return new TestPage(driver);
             }
             case "Карьера": {
                 buttonCareer.click();
@@ -75,6 +75,6 @@ public class LeftNavigation extends BasePageObject {
             }
         }
 
-        return PageFactory.initElements(driver, HomePage.class);
+        return new HomePage(driver);
     }
 }

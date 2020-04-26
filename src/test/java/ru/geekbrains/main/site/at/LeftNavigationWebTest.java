@@ -19,8 +19,7 @@ public class LeftNavigationWebTest extends BeforeAndAfterStep {
 
     static Stream<String> stringProvider() {
         return Stream.of(
-                "Курсы", "Вебинары", "Форум", "Блог", "Тесты",
-                "Карьера");
+                "Курсы", "Вебинары", "Форум", "Блог", "Тесты", "Карьера");
     }
 
     @DisplayName("Нажатие в навигации")

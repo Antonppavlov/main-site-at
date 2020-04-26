@@ -11,7 +11,7 @@ import ru.geekbrains.main.site.at.page.content.CoursePage;
 @DisplayName("Страница Курсы")
 public class CourseWebTest extends BeforeAndAfterStep {
 
-    @DisplayName("Вход с валидный логин/пароль")
+    @DisplayName("Проверка работы фильтров")
     @Test
     void checkSingInValidLogin() {
         ((CoursePage)
