@@ -23,7 +23,6 @@ public abstract class BasePageObject {
     protected WebElement findElement(List<WebElement> list, String expectedText) {
         List<Object> arrayList = new ArrayList<>();
         for (WebElement webElement : list) {
-            wait10second.until(ExpectedConditions.visibilityOf(webElement));
             String actualText = webElement.getText();
             arrayList.add(actualText);
             if (actualText.toLowerCase().trim().equals(expectedText.toLowerCase().trim())) {

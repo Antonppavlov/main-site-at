@@ -13,7 +13,7 @@ public class CoursePage extends ContentBasePage implements OpenUrl {
 
     private ContentNavigationCourseBlock contentNavigationCourseBlock;
 
-    @FindBy(xpath = "//*[@id=\"cour-new\"]//li")
+    @FindBy(xpath = "//form/ul//label")
     private List<WebElement> filterList;
 
     @FindBy(xpath = "//a/div/div/span")
@@ -27,11 +27,7 @@ public class CoursePage extends ContentBasePage implements OpenUrl {
     public CoursePage configFilter(String... args) {
         for (String test : args) {
             WebElement element = findElement(filterList, test);
-            element .click();
-//
-//            TODO после прохождения коллекций -переделать на коллекции
-//            driver.findElement(By.xpath("//form/ul//label[text()='" + test + "']"))
-//                    .click();
+            element.click();
         }
         return this;
     }
@@ -39,8 +35,6 @@ public class CoursePage extends ContentBasePage implements OpenUrl {
     public CoursePage checkingDisplayedCourses(String... args) {
         for (String test : args) {
             findElement(courseList, test);
-            //TODO после прохождения коллекций -переделать на коллекции
-//            driver.findElement(By.xpath("//a/div/div/span[text()='" + test + "']"));
         }
         return this;
     }
