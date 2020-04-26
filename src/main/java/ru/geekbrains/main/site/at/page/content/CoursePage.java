@@ -2,6 +2,7 @@ package ru.geekbrains.main.site.at.page.content;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 import ru.geekbrains.main.site.at.block.ContentNavigationCourseBlock;
 import ru.geekbrains.main.site.at.page.content.base.ContentBasePage;
 
@@ -12,6 +13,7 @@ public class CoursePage extends ContentBasePage {
     public CoursePage(WebDriver driver) {
         super(driver);
         this.contentNavigationCourseBlock = new ContentNavigationCourseBlock(driver);
+        PageFactory.initElements(driver, this);
     }
 
     public CoursePage configFilter(String... args) {

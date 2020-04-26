@@ -5,13 +5,14 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 import ru.geekbrains.main.site.at.base.BeforeAndAfterStep;
+import ru.geekbrains.main.site.at.block.LeftNavigation;
 import ru.geekbrains.main.site.at.page.content.CoursePage;
 
 @Execution(ExecutionMode.CONCURRENT)
 @DisplayName("Страница Курсы")
 public class CourseWebTest extends BeforeAndAfterStep {
 
-    @DisplayName("Вход с валидный логин/пароль")
+    @DisplayName("Проверка отображения курсов по фильтам")
     @Test
     void checkSingInValidLogin() {
         ((CoursePage)
@@ -19,9 +20,9 @@ public class CourseWebTest extends BeforeAndAfterStep {
                         .openUrl()
                         .closedPopUp()
                         .getLeftNavigation()
-                        .clickButton("Курсы")
+                .clickButton(LeftNavigation.Button.buttonCourses)
         )
-                .getContentNavigationCourseBlock().clickButton("Курсы")
+                .getContentNavigationCourseBlock().clickButton(LeftNavigation.Button.buttonCourses.getName())
                 .configFilter("Бесплатные", "Тестирование")
                 .checkingDisplayedCourses(
                         "Тестирование ПО. Уровень 1",

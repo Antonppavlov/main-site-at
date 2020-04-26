@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import ru.geekbrains.main.site.at.page.BasePageObject;
 import ru.geekbrains.main.site.at.page.content.CoursePage;
 import ru.geekbrains.main.site.at.page.content.HomePage;
+import ru.geekbrains.main.site.at.page.content.TestPage;
 import ru.geekbrains.main.site.at.page.content.base.ContentBasePage;
 import ru.geekbrains.main.site.at.util.PageNotCreateException;
 
@@ -39,42 +40,62 @@ public class LeftNavigation extends BasePageObject {
         PageFactory.initElements(driver, this);
     }
 
+
     @Step("Нажатие кнопки {nameButton}")
-    public ContentBasePage clickButton(String nameButton) {
-        switch (nameButton) {
-            case "Главная": {
+    public ContentBasePage clickButton(Button button) {
+        ContentBasePage contentBasePage = null;
+
+        switch (button) {
+            case icon:
                 icon.click();
-                return new HomePage(driver);
-            }
-            case "Курсы": {
+                contentBasePage = new HomePage(driver);
+                break;
+            case buttonCourses:
                 buttonCourses.click();
-                return new CoursePage(driver);
-            }
-            case "Вебинары": {
+                contentBasePage = new CoursePage(driver);
+                break;
+            case buttonEvents:
                 buttonEvents.click();
                 break;
-            }
-            case "Форум": {
+            case buttonTopics:
                 buttonTopics.click();
                 break;
-            }
-            case "Блог": {
+            case buttonPosts:
                 buttonPosts.click();
                 break;
-            }
-            case "Тесты": {
+            case buttonTests:
                 buttonTests.click();
+                contentBasePage = new TestPage(driver);
                 break;
-            }
-            case "Карьера": {
+            case buttonCareer:
                 buttonCareer.click();
                 break;
-            }
-            default: {
-                throw new PageNotCreateException("Не найдена кнопка с именем: " + nameButton);
-            }
         }
 
-        return PageFactory.initElements(driver, HomePage.class);
+        if(null==contentBasePage){
+            throw new PageNotCreateException("Страница: "+button.getName()+" не описана!");
+        }
+
+        return contentBasePage;
+    }
+
+   public enum Button {
+        icon("Главная"),
+        buttonCourses("Курсы"),
+        buttonEvents("Вебинары"),
+        buttonTopics("Форум"),
+        buttonPosts("Блог"),
+        buttonTests("Тесты"),
+        buttonCareer("Карьера");
+
+        private String name;
+
+        Button(String name) {
+            this.name = name;
+        }
+
+        public String getName() {
+            return name;
+        }
     }
 }
