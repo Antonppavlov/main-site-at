@@ -8,8 +8,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import ru.geekbrains.main.site.at.block.HeaderBlock;
 import ru.geekbrains.main.site.at.block.LeftNavigation;
 import ru.geekbrains.main.site.at.page.BasePageObject;
+import ru.geekbrains.main.site.at.page.OpenUrl;
 
-public abstract class ContentBasePage extends BasePageObject {
+public abstract class ContentBasePage extends BasePageObject implements OpenUrl {
 
     protected LeftNavigation leftNavigation;
     protected HeaderBlock headerBlock;

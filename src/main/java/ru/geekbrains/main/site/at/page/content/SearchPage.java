@@ -5,7 +5,7 @@ import ru.geekbrains.main.site.at.block.SearchTabsBlock;
 import ru.geekbrains.main.site.at.page.OpenUrl;
 import ru.geekbrains.main.site.at.page.content.base.ContentBasePage;
 
-public class SearchPage extends ContentBasePage implements OpenUrl {
+public class SearchPage extends ContentBasePage  {
 
     private SearchTabsBlock searchTabsBlock;
 

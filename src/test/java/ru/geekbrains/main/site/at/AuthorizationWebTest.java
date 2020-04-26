@@ -16,7 +16,6 @@ public class AuthorizationWebTest extends BeforeAndAfterStep {
     void checkSingInValidLogin() {
         String login = "hao17583@bcaoo.com";
         String password = "hao17583";
-
         new AuthorizationPage(driver)
                 .openUrl()
                 .authorization(login, password)

@@ -5,7 +5,7 @@ import org.openqa.selenium.support.PageFactory;
 import ru.geekbrains.main.site.at.page.OpenUrl;
 import ru.geekbrains.main.site.at.page.content.base.ContentBasePage;
 
-public class HomePage extends ContentBasePage implements OpenUrl {
+public class HomePage extends ContentBasePage  {
 
     public HomePage(WebDriver driver) {
         super(driver);

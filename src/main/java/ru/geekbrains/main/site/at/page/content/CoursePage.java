@@ -3,10 +3,9 @@ package ru.geekbrains.main.site.at.page.content;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import ru.geekbrains.main.site.at.block.ContentNavigationCourseBlock;
-import ru.geekbrains.main.site.at.page.OpenUrl;
 import ru.geekbrains.main.site.at.page.content.base.ContentBasePage;
 
-public class CoursePage extends ContentBasePage implements OpenUrl {
+public class CoursePage extends ContentBasePage {
 
     private ContentNavigationCourseBlock contentNavigationCourseBlock;
 
