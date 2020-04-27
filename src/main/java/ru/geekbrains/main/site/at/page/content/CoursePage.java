@@ -1,14 +1,24 @@
 package ru.geekbrains.main.site.at.page.content;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import ru.geekbrains.main.site.at.block.ContentNavigationCourseBlock;
 import ru.geekbrains.main.site.at.page.content.base.ContentBasePage;
+
+import java.util.List;
 
 public class CoursePage extends ContentBasePage {
 
     private ContentNavigationCourseBlock contentNavigationCourseBlock;
+
+    @FindBy(xpath = "//form/ul//label")
+    private List<WebElement> filterList;
+
+    @FindBy(xpath = "//a/div/div/span")
+    private List<WebElement> courseList;
 
     public CoursePage(WebDriver driver) {
         super(driver);
@@ -18,17 +28,16 @@ public class CoursePage extends ContentBasePage {
 
     public CoursePage configFilter(String... args) {
         for (String test : args) {
-            //TODO после прохождения коллекций -переделать на коллекции
-            driver.findElement(By.xpath("//form/ul//label[text()='" + test + "']"))
-                    .click();
+            WebElement element = findElement(filterList, test);
+            element.click();
         }
         return this;
     }
 
     public CoursePage checkingDisplayedCourses(String... args) {
         for (String test : args) {
-            //TODO после прохождения коллекций -переделать на коллекции
-            driver.findElement(By.xpath("//a/div/div/span[text()='" + test + "']"));
+            WebElement element = findElement(courseList, test);
+            wait10second.until(ExpectedConditions.visibilityOf(element));
         }
         return this;
     }

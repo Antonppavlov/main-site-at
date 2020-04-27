@@ -7,7 +7,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import ru.geekbrains.main.site.at.page.BasePageObject;
 import ru.geekbrains.main.site.at.page.OpenUrl;
-import ru.geekbrains.main.site.at.page.content.CoursePage;
 import ru.geekbrains.main.site.at.page.content.HomePage;
 
 public class AuthorizationPage extends BasePageObject implements OpenUrl {
@@ -26,7 +25,7 @@ public class AuthorizationPage extends BasePageObject implements OpenUrl {
         PageFactory.initElements(driver, this);
     }
 
-    @Step("авторизация с логин:{login} и пароль {password}")
+    @Step("авторизация с логин: {login} и пароль: {password}")
     public HomePage authorization(String login, String password) {
         inputLogin.sendKeys(login);
         inputPassword.sendKeys(password);

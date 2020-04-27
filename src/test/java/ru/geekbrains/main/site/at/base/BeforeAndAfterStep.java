@@ -23,8 +23,8 @@ public abstract class BeforeAndAfterStep {
         options.setExperimentalOption("excludeSwitches", Arrays.asList("disable-popup-blocking"));
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
         driver.manage().timeouts().setScriptTimeout(60, TimeUnit.SECONDS);
     }
 
@@ -32,4 +32,6 @@ public abstract class BeforeAndAfterStep {
     void tearDown() {
         driver.quit();
     }
+
+
 }
