@@ -1,18 +1,20 @@
-package ru.geekbrains.main.site.at;
+package ru.geekbrains.main.site.at.page.content;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import ru.geekbrains.main.site.at.block.CourseHeader;
+import ru.geekbrains.main.site.at.block.ContentNavigationCourseBlock;
+import ru.geekbrains.main.site.at.page.content.base.ContentBasePage;
 
-public class CoursePage extends BasePage {
+public class CoursePage extends ContentBasePage {
+
+    private ContentNavigationCourseBlock contentNavigationCourseBlock;
 
     public CoursePage(WebDriver driver) {
         super(driver);
-        this.courseHeader = PageFactory.initElements(driver, CourseHeader.class);
+        this.contentNavigationCourseBlock = new ContentNavigationCourseBlock(driver);
+        PageFactory.initElements(driver, this);
     }
-
-    private CourseHeader courseHeader;
 
     public CoursePage configFilter(String... args) {
         for (String test : args) {
@@ -31,7 +33,13 @@ public class CoursePage extends BasePage {
         return this;
     }
 
-    public CourseHeader getCourseHeader() {
-        return courseHeader;
+    public ContentNavigationCourseBlock getContentNavigationCourseBlock() {
+        return contentNavigationCourseBlock;
+    }
+
+    @Override
+    public CoursePage openUrl() {
+        driver.get("https://geekbrains.ru/courses");
+        return this;
     }
 }

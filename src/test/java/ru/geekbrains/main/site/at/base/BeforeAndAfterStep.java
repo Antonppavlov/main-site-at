@@ -10,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
-public abstract class BaseTest {
+public abstract class BeforeAndAfterStep {
     protected WebDriver driver;
 
     @BeforeEach
@@ -18,9 +18,6 @@ public abstract class BaseTest {
         WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();
-
-//        options.setPageLoadStrategy(PageLoadStrategy.NONE);
-
         options.addArguments("--disable-notifications");
         options.addArguments("--disable-popup-blocking");
         options.setExperimentalOption("excludeSwitches", Arrays.asList("disable-popup-blocking"));
