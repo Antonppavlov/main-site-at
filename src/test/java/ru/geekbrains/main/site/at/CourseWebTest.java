@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 import ru.geekbrains.main.site.at.base.BeforeAndAfterStep;
+import ru.geekbrains.main.site.at.block.LeftNavigation;
 import ru.geekbrains.main.site.at.page.content.CoursePage;
 
 @Execution(ExecutionMode.CONCURRENT)
@@ -19,7 +20,7 @@ public class CourseWebTest extends BeforeAndAfterStep {
                         .openUrl()
                         .closedPopUp()
                         .getLeftNavigation()
-                        .clickButton("Курсы")
+                        .clickButton(LeftNavigation.Button.buttonCourses)
         )
                 .getContentNavigationCourseBlock().clickButton("Курсы")
                 .configFilter("Бесплатные", "Тестирование")
